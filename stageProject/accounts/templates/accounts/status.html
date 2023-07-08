@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col">
+    <div class="col-md">
+      <div class="card text-center text-white total-orders mb-3" id="total-orders">
+        <div class="card-header">
+          <h5 class="card-title">Total Orders</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{total_orders}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-md">
+      <div class="card text-center text-white mb-3" id="orders-delivered">
+        <div class="card-header">
+          <h5 class="card-title">Orders Delivered</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ Delivered}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="col-md">
+      <div class="card text-center text-white mb-3" id="orders-pending">
+        <div class="card-header">
+          <h5 class="card-title">Orders Pending</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ Pending}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .total-orders {
+    background-color: rgb(192, 47, 177);
+    /* Ajoutez vos styles personnalisés ici */
+  }
+
+  #orders-delivered {
+    background-color: rgb(100, 174, 100);
+    /* Ajoutez vos styles personnalisés ici */
+  }
+
+  #orders-pending {
+    background-color: rgb(69, 105, 132);
+    /* Ajoutez vos styles personnalisés ici */
+  }
+</style>
+
+  

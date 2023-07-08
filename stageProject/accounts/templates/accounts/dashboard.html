@@ -1,0 +1,91 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+{% include 'accounts/status.html' %}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold">
+        Catégories
+    </h4>
+    <a type="button" class="btn btn-primary mb-3" href="#">Créer une nouvelle catégorie</a>
+
+    <div class="card">
+        <div class="table-responsive text-nowrap">
+            <div id="search-results">
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Utilisation recommandée</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0" id="myTable">
+                       
+                            <tr>
+                                <td colspan="5">Aucun enregistrement trouvé</td>
+                            </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-5">
+      <h5>CLIENTS:</h5>
+      <hr>
+      <div class="card card-body">
+        <a class="btn btn-primary" href=""> Créer client</a>
+        <table class="table table-sm">
+          <tr>
+            <th></th>
+            <th>client</th>
+            <th>tel</th>
+          </tr>
+          {% for customer in customers %}
+        <tr>
+            <td><a class="btn btn-primary btn-sm btn-info" href="{% url 'costume' customer.id %}">View</a></td>
+            <td> {{customer.name}}</td>
+            <td> {{customer.phone}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <h5>LAST 5 ORDERS</h5>
+    <hr>
+    <div class="card card-body">
+      <a class="btn btn-primary btn-sm btn-block" href="#">Create Order</a>
+      <table class="table table-sm">
+        <tr>
+          <th>Product</th>
+          <th>Date Ordered</th>
+          <th>Status</th>
+          <th>Update</th>
+          <th>Remove</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td> {{order.product}}</td>
+            <td> {{order.date_created}}</td>
+            <td> {{order.status}}</td>
+            <td><a class="btn btn-primary btn-sm btn-info" href="">Update</a></td>
+            <td><a class="btn btn-primary btn-sm btn-danger" href="">Remove</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  
+  
+
+
+{% endblock content %}
+
