@@ -1,4 +1,13 @@
 {% load static %}
+<style>
+  .hello-msg
+  {
+    font-size: 18PX;
+    color: #fff;
+    margin-right:20PX ;
+
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
     <img src="{% static 'images/logo.png'%}" alt="">
@@ -19,4 +28,6 @@
         
       </ul>
     </div>
+    <span class="hello-msg">Hello,{{request.user}} </span>
+    <span class="hello-msg"><a href="{% url 'logout'%}">logout</a></span>
   </nav>
