@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 
-from .models import Order
+from .models import Order , customer
 
 class OrderForm(ModelForm):
     class Meta:
@@ -14,3 +14,8 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email' , 'password1' , 'password2']
+class CustomerForm(ModelForm):
+    class Meta:
+        model = customer
+        fields = '__all__'
+        exclude = ['user']
