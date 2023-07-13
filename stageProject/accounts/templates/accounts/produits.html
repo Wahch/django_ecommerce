@@ -1,7 +1,53 @@
 {% extends 'accounts/main.html' %}
 
 {% block content %}
-
+<style>
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .col-md {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  </style>
+  
 <div class="row">
     <div class="col-md">
       <div class="card card-body">

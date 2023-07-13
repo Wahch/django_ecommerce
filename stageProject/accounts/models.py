@@ -33,7 +33,7 @@ class customer(models.Model):
     profile_pic = models.ImageField(default='profile1.png' ,  null=True , blank=True)
     date_created = models.DateTimeField(auto_now_add=True , null=True)
     def __str__(self):
-        return self.name
+        return self.name 
     
 class Tag(models.Model):
     name = models.CharField(max_length=200 , null=True)

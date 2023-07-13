@@ -21,9 +21,7 @@ def registerPage(request):
           if form.is_valid():
                user = form.save()
                username = form.cleaned_data.get('username')
-               group = Group.objects.get(name='customer')
-               customer.objects.create(user=user,)
-               user.groups.add(group)
+
                messages.success(request, "compte creer pour " + username)
                return redirect('login')
      context = {'form':form}
@@ -57,7 +55,7 @@ def userPage(request):
      context = {'orders':orders , 'total_orders':total_orders , 'Delivered':Delivered , 'Pending':Pending}
      return render(request,'accounts/user.html', context) 
 @login_required(login_url='login')   
-@allowed_users(allowed_roles=['customer']) 
+@allowed_users(allowed_roles=['customer','admin']) 
 def accountSettings(request):
      customer = request.user.customer
      form = CustomerForm(instance=customer)
@@ -114,14 +112,14 @@ def createOrder(request,pk):
 def updateOrder(request,pk):
      
      order = Order.objects.get(id=pk)
-     form = OrderForm(instance=order)
+     formset = OrderForm(instance=order)
      if request.method == 'POST' :
           #print('Printing Post',request.POST)
-           form = OrderForm(request.POST,instance=order)
-           if form.is_valid():
-                form.save()
+           formset = OrderForm(request.POST,instance=order)
+           if formset.is_valid():
+                formset.save()
                 return redirect('/')
-     context = {'form':form}
+     context = {'formset':formset}
      return render(request,'accounts/order_form.html',context)
 @login_required(login_url='login')    
 @allowed_users(allowed_roles=['admin']) 

@@ -7,10 +7,14 @@
     margin-right:20PX ;
 
   }
+  .navbar .profile-pic {
+  width: 40px; /* Définissez la largeur souhaitée */
+  height: 40px; /* Définissez la hauteur souhaitée */
+}
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <img src="{% static 'images/logo.png'%}" alt="">
+    <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
+    <img src="{% static 'images/profile1.png'%}" alt="">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,13 +27,14 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'produit'  %}">Produits</a>
         </li>
-        {% else %}
+        {% endif %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'account'  %}">Settings</a>
         </li>
-        {% endif %}
+        
       </ul>
     </div>
-    <span class="hello-msg">Hello,{{request.user}} </span>
+    <span class="hello-msg"><img class="profile-pic" src="{{request.user.customer.profile_pic.url	}}" ></span>
+    <span class="hello-msg"> Hello,{{request.user}} </span>
     <span class="hello-msg"><a href="{% url 'logout'%}">logout</a></span>
   </nav>
