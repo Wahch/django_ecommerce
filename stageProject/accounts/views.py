@@ -77,7 +77,7 @@ def home(request):
     context = {'orders':orders , 'customers':customers , 'total_customers':total_customers , 'total_orders':total_orders , 'Delivered':Delivered , 'Pending':Pending}
     return render(request,'accounts/dashboard.html', context)
 @login_required(login_url='login')  
-@allowed_users(allowed_roles=['admin'])   
+@allowed_users(allowed_roles=['admin','customer'])   
 def produit(request):
      products = Product.objects.all()
      return render(request,'accounts/produits.html' , {'products':products})

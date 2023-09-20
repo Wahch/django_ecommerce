@@ -59,6 +59,7 @@
             <th>Product</th>
             <th>Category</th>
             <th>Price</th>
+            <th>Photo</th>
           </tr>
           <!-- Ajoutez ici les lignes de données pour vos produits -->
           {% for i in products%}
@@ -66,6 +67,10 @@
               <td>{{i.name}}</td>
               <td>{{i.Category}}</td>
               <td>{{i.price}}</td>
+              <td>
+                
+                <img class="profile-pic" src="{{request.product.product_pic.url	}}" > <!-- Affiche l'URL de l'image -->
+            </td>
           </tr>
             
 
